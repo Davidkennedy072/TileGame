@@ -44,7 +44,7 @@ public abstract class Entity {
 				(int) (y + bounds.y + yOffset), bounds.width, bounds.height);
 	}
 	
-	//HELPFUL DISPLAY
+	//DEBUG DISPLAY
 	
 	protected void DisplayBounds(Graphics g) {
 			g.setColor(Color.red);

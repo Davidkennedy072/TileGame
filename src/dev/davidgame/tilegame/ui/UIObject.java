@@ -1,5 +1,6 @@
 package dev.davidgame.tilegame.ui;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
@@ -37,6 +38,13 @@ public abstract class UIObject {
 		if(hovering == true) {
 			onClick();
 		}
+	}
+	
+	//DEBUG DISPLAY
+	
+	protected void displayBounds(Graphics g) {
+		g.setColor(Color.red);
+		g.drawRect((int) (x), (int) (y), width, height);
 	}
 	
 	//GETTERS SETTERS

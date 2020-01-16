@@ -25,6 +25,9 @@ public class UIManager {
 	public void render(Graphics g) {
 		for(UIObject o : objects) {
 			o.render(g);
+			if(handler.getGame().debug == true) {
+				o.displayBounds(g);
+			}
 		}
 	}
 	
