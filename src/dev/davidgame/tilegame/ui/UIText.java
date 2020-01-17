@@ -6,29 +6,37 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Rectangle2D;
+
+import dev.davidgame.tilegame.Handler;
 /**
  * @author David Kennedy
  * Creates UIText abstract template 
  *
  */
 
-public abstract class UIText {
+public abstract class UIText extends UIObject{
 	
+	protected Handler handler;
 	protected float x, y;
 	protected String string;
 	protected boolean hovering = false;
-	protected Rectangle2D bounds;
 	
-	public UIText(float x, float y, String string) {
-		this.x = x;
-		this.y = y;
+	public UIText(Handler handler, String string, float x, float y) {
+		super(x, y, 10, 10);
+		this.handler = handler;
 		this.string = string;
+		
+		
+		
 	}
-	
-	protected void findBounds(Graphics g, String string) {
-		FontMetrics metrics = g.getFontMetrics();
-		this.bounds = metrics.getStringBounds(string, g);
-	}
+
+	//protected void findBounds(String string) {
+	//	FontMetrics metrics = handler.getGame().getGraphics().getFontMetrics();;
+	//	Rectangle2D bounds = metrics.getStringBounds(string, handler.getGame().getGraphics());
+	//	this.width = (int) bounds.getWidth();
+	//	this.height = (int) bounds.getHeight();
+	//	bounds = new Rectangle((int) x, (int) y, width, height);
+	//}
 	
 	public abstract void tick();
 	
@@ -37,7 +45,7 @@ public abstract class UIText {
 	//DEBUG DISPLAY
 	protected void displayBounds(Graphics g) {
 		g.setColor(Color.red);
-		g.drawRect((int) (x), (int) (y -bounds.getHeight()), (int) bounds.getWidth(), (int) (bounds.getHeight()));
+		g.drawRect((int) x, (int) (y - bounds.getHeight()), (int) bounds.getWidth(), (int) (bounds.getHeight()));
 	}
 	
 }

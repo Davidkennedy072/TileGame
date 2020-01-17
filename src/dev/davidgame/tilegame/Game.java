@@ -149,6 +149,10 @@ public class Game implements Runnable {
 		return height;
 	}
 	
+	public Graphics getGraphics() {
+		return g;
+	}
+	
 	public synchronized void start() {
 		if(running == true) {
 			return;

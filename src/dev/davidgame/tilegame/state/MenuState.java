@@ -8,12 +8,10 @@ import dev.davidgame.tilegame.graphics.Assets;
 import dev.davidgame.tilegame.ui.ClickListener;
 import dev.davidgame.tilegame.ui.UIImageButton;
 import dev.davidgame.tilegame.ui.UIManager;
-import dev.davidgame.tilegame.ui.UITextButton;
 
 public class MenuState extends State {
 	
 	private UIManager uiManager;
-	private UITextButton testText;
 	
 	public MenuState(Handler handler) {
 		super(handler);
@@ -36,8 +34,6 @@ public class MenuState extends State {
 	@Override
 	public void render(Graphics g) {
 		uiManager.render(g);
-		testText = new UITextButton("HIsfsfsfsf", 10, 100);
-		testText.render(g);
 	}
 	
 

@@ -2,10 +2,12 @@ package dev.davidgame.tilegame.ui;
 
 import java.awt.Graphics;
 
+import dev.davidgame.tilegame.Handler;
+
 public class UITextButton extends UIText{
 	
-	public UITextButton(String string, float x, float y) {
-		super(x, y, string);
+	public UITextButton(Handler handler, String string, float x, float y) {
+		super(handler, string, x, y);
 	}
 	
 	@Override
@@ -16,7 +18,11 @@ public class UITextButton extends UIText{
 	@Override
 	public void render(Graphics g) {
 		g.drawString(string, (int) x, (int) y);
-		this.findBounds(g, string);
 		this.displayBounds(g);
+	}
+
+	@Override
+	public void onClick() {
+		
 	}
 }
