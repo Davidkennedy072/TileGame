@@ -1,0 +1,21 @@
+Idea is to have bfrontier units as main character
+Terraria items as obtainable items throughout the game with variable stats
+player has lots of different stats, health, defense, attack, elemental attack, etc
+terraria debuffs as buffs and debuffs in the game, along with bfrontier buffs/debuffs
+player has sphereical hitbox displayed, hitbox radius is a stat
+attack is tick dependent (where tick is time (s) dependent). ie:
+player has skills (copy bf skils but edited), that activate every so many seconds. eg:
+main attack activates every 10 sec, and enemies in range are hit, special attack initates every 10 sec, etc.
+each bfrontier character has special ability (copy from bfontier special skills) that are passive and boost stats along with items.
+some items give special skills, some bfrontier character need specific item to activate special skills.
+Something like: normal attack - 10 sec, brave burst (1st special) - 15 sec, super burst (2nd special) - 2 min, ultimate burst (ultimate) - 5 mins.
+some characters and items will have heals or percent heals per sec.
+
+when character attacks, complex calculation determines how much of each stat the character gains and how much the maximum increases
+Stats: HP, DEF, Speed, (fire, earth, water air, light, dark) attack, vampirism, the force good vs bad, attack speed, critical rate, critical damage, pure damage, life per hit, magic find, etc
+Good item statis ideas here:
+https://herosiege.fandom.com/wiki/Equipment
+
+
+Use realm of the mad god loot bags for when enemies die (color relating to highest rank contents)
+Use Terraria hearts or BF hearts?

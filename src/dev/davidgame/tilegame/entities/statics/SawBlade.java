@@ -10,6 +10,7 @@ public class SawBlade extends StaticEntity {
 
 	public SawBlade(Handler handler, float x, float y) {
 		super(handler, x, y, Tile.TILEWIDTH, Tile.TILEHEIGHT);
+		this.hit_Circle_Radius = 70;
 	}
 
 	@Override

@@ -11,14 +11,16 @@ public abstract class Entity {
 	protected Handler handler;
 	protected float x, y; 
 	protected int width, height;
+	protected int hit_Circle_Radius = 30;
 	protected Rectangle bounds; 
 	
-	public Entity(Handler handler, float x, float y, int width, int height) {
+	public Entity(Handler handler, float x, float y, int width, int height, int hitRadius) {
 		this.handler = handler;
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
+		this.hit_Circle_Radius = hitRadius;
 		
 		bounds = new Rectangle(0,0, width, height);
 	}
@@ -42,6 +44,14 @@ public abstract class Entity {
 	public Rectangle getCollisionBounds(float xOffset, float yOffset) {
 		return new Rectangle((int) (x + bounds.x + xOffset), 
 				(int) (y + bounds.y + yOffset), bounds.width, bounds.height);
+	}
+	
+	//HIT CIRCLE DISPLAY
+	protected void DisplayHitCircle(Graphics g) {
+		g.setColor(new Color(255, 0, 0, 127));
+		g.fillOval((int)(x - hit_Circle_Radius/2 + width/2 - handler.getGameCamera().getxOffset()), 
+				(int)(y - hit_Circle_Radius/2 + height/2 - handler.getGameCamera().getyOffset()), 
+				hit_Circle_Radius, hit_Circle_Radius);
 	}
 	
 	//DEBUG DISPLAY

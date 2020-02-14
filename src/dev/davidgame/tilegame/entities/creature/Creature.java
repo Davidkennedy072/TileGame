@@ -10,13 +10,14 @@ public abstract class Creature extends Entity {
 	public static final float DEFAULT_SPEED = 3.0f; 
 	public static final int DEFAULT_CREATURE_WIDTH = 50;
 	public static final int DEFAULT_CREATURE_HEIGHT = 50;
+	public static final int DEFAULT_CREATURE_HIT_RADIUS = 100;
 	
 	protected int health;
 	protected float speed;
 	protected float xMove, yMove;
 	
 	public Creature(Handler handler, float x, float y, int width, int height) {
-		super(handler, x, y, width, height);
+		super(handler, x, y, width, height, DEFAULT_CREATURE_HIT_RADIUS);
 		this.health = DEFAULT_HEALTH; 
 		this.speed = DEFAULT_SPEED;
 		xMove = 0;
@@ -49,6 +50,7 @@ public abstract class Creature extends Entity {
 	public void moveY() {
 		y = y + yMove;
 	}
+	
 	
 	protected boolean checkCollision(float currentX, float currentY, float xMove, float yMove) {
 		int tx = (int)(currentX + xMove)/Tile.TILEWIDTH;

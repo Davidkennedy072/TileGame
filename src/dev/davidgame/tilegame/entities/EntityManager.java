@@ -43,6 +43,7 @@ public class EntityManager {
 	public void render(Graphics g) {
 		for(Entity e : entities) {
 			e.render(g);
+			e.DisplayHitCircle(g);
 			if(handler.getGame().debug == true) {
 				e.DisplayBounds(g);
 				e.DisplayEntityPoint(g);
