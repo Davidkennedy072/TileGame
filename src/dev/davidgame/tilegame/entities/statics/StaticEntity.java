@@ -15,6 +15,10 @@ public abstract class StaticEntity extends Entity {
 		super(handler, x, y, width, height, DEFAULT_STATIC_ENTITY_HIT_RADIUS); 
 	}
 	
+	public void die() {
+		
+	}
+	
 }
 	
 	

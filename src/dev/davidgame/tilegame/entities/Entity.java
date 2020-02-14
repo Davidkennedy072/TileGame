@@ -3,16 +3,23 @@ package dev.davidgame.tilegame.entities;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.awt.geom.Ellipse2D;
 
 import dev.davidgame.tilegame.Handler;
 
 public abstract class Entity {
 	
+	public static final int DEFAULT_HEALTH = 100;
+	public static final int DEFAULT_HIT_RADIUS = 0;
+	
 	protected Handler handler;
 	protected float x, y; 
 	protected int width, height;
-	protected int hit_Circle_Radius = 30;
+	protected int hit_Circle_Radius;
 	protected Rectangle bounds; 
+	
+	protected boolean active = true;
+	protected int health;
 	
 	public Entity(Handler handler, float x, float y, int width, int height, int hitRadius) {
 		this.handler = handler;
@@ -20,11 +27,38 @@ public abstract class Entity {
 		this.y = y;
 		this.width = width;
 		this.height = height;
-		this.hit_Circle_Radius = hitRadius;
 		
+		this.hit_Circle_Radius = DEFAULT_HIT_RADIUS;
+		this.health = DEFAULT_HEALTH; 
 		bounds = new Rectangle(0,0, width, height);
 	}
 	
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
+	public int getHealth() {
+		return health;
+	}
+
+	public void setHealth(int health) {
+		this.health = health;
+	}
+	
+	public void hurt(int amt) {
+		health = health - amt;
+		if(health <= 0) {
+			active = false;
+			die();
+		}
+	}
+	
+	public abstract void die();
+
 	public abstract void tick();
 	
 	public abstract void render(Graphics g);
@@ -44,6 +78,12 @@ public abstract class Entity {
 	public Rectangle getCollisionBounds(float xOffset, float yOffset) {
 		return new Rectangle((int) (x + bounds.x + xOffset), 
 				(int) (y + bounds.y + yOffset), bounds.width, bounds.height);
+	}
+	
+	public Ellipse2D.Float getAttackCircle(float xOffset, float yOffset){
+		return new Ellipse2D.Float(x - hit_Circle_Radius/2 + width/2 + xOffset, 
+				y - hit_Circle_Radius/2 + height/2 - yOffset, 
+				hit_Circle_Radius, hit_Circle_Radius);
 	}
 	
 	//HIT CIRCLE DISPLAY
