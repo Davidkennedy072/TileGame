@@ -8,6 +8,7 @@ public class Assets {
 	
 	public static BufferedImage victide, person, mirror, back, wing, saw, vargas, greentree;
 	public static BufferedImage dirt, mud, stone;
+	public static BufferedImage woodenchest;
 	public static BufferedImage[] btn_start;
 	
 	public static void init() {
@@ -26,5 +27,7 @@ public class Assets {
 		mud = ImageLoader.loadImager("/textures/Mud_Block.png");
 		stone = ImageLoader.loadImager("/textures/Stone_Block.png");
 		greentree = ImageLoader.loadImager("/textures/Tree_1.png");
+		
+		woodenchest = ImageLoader.loadImager("/textures/Wooden_chest.png");
 	}
 }
