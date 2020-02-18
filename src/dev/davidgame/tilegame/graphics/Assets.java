@@ -22,7 +22,7 @@ public class Assets {
 		saw = sheet.crop(1*width, 1*height, width, height);
 		
 		vargas = ImageLoader.loadImager("/textures/Fencer_Vargas.png");
-		//victide = ImageLoader.loadImager("/textures/Victide_Enchantment_.png");
+		victide = ImageLoader.loadImager("/textures/Victide_Enchantment_.png");
 		dirt = ImageLoader.loadImager("/textures/Dirt_Block.png");
 		mud = ImageLoader.loadImager("/textures/Mud_Block.png");
 		stone = ImageLoader.loadImager("/textures/Stone_Block.png");
