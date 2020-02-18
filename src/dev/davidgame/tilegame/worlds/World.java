@@ -8,6 +8,7 @@ import dev.davidgame.tilegame.entities.EntityManager;
 import dev.davidgame.tilegame.entities.creature.Player;
 import dev.davidgame.tilegame.entities.statics.GreenTree;
 import dev.davidgame.tilegame.entities.statics.SawBlade;
+import dev.davidgame.tilegame.items.ItemManager;
 import dev.davidgame.tilegame.tiles.Tile;
 import dev.davidgame.tilegame.utils.Utils;
 
@@ -19,10 +20,14 @@ public class World {
 	private int[][] tiles; 
 	//Entities
 	private EntityManager entityManager;
+	//Item
+	private ItemManager itemManager; 
 	
 	public World(Handler handler, String path) {
 		this.handler = handler;
 		entityManager = new EntityManager(handler, new Player(handler, 200, 200));
+		itemManager = new ItemManager(handler);
+		//Temporary Entity Spawn Code
 		entityManager.addEntity((new GreenTree(handler, 500, 100)));
 		entityManager.addEntity((new GreenTree(handler, 100, 320)));
 		entityManager.addEntity((new GreenTree(handler, 200, 200)));
@@ -35,7 +40,7 @@ public class World {
 	}
 	
 	public void tick() {
-		//Entities
+		itemManager.tick();
 		entityManager.tick();
 	}
 	
@@ -51,6 +56,8 @@ public class World {
 						(int)(y*Tile.TILEHEIGHT - handler.getGameCamera().getyOffset()));
 			}
 		}
+		//Items
+		itemManager.render(g);
 		//Entities
 		entityManager.render(g);
 
@@ -86,6 +93,10 @@ public class World {
 		}
 			
 	}
+	
+	// GETTERS and SETTERS
+	
+	
 	public EntityManager getEntityManager() {
 		return entityManager;
 	}
@@ -97,5 +108,22 @@ public class World {
 	public int getHeight() {
 		return height;
 	}
+
+	public Handler getHandler() {
+		return handler;
+	}
+
+	public void setHandler(Handler handler) {
+		this.handler = handler;
+	}
+
+	public ItemManager getItemManager() {
+		return itemManager;
+	}
+
+	public void setItemManager(ItemManager itemManager) {
+		this.itemManager = itemManager;
+	}
+	
 
 }

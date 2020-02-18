@@ -4,6 +4,7 @@ import java.awt.Graphics;
 
 import dev.davidgame.tilegame.Handler;
 import dev.davidgame.tilegame.graphics.Assets;
+import dev.davidgame.tilegame.items.Item;
 
 public class GreenTree extends StaticEntity{
 
@@ -19,6 +20,11 @@ public class GreenTree extends StaticEntity{
 	@Override
 	public void tick() {
 		
+	}
+	
+	@Override
+	public void die() {
+		handler.getWorld().getItemManager().addItem(Item.woodChest.createNew((int) x, (int) y));
 	}
 
 	@Override

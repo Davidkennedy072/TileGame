@@ -4,6 +4,7 @@ import java.awt.Graphics;
 
 import dev.davidgame.tilegame.Handler;
 import dev.davidgame.tilegame.graphics.Assets;
+import dev.davidgame.tilegame.items.Item;
 import dev.davidgame.tilegame.tiles.Tile;
 
 public class SawBlade extends StaticEntity {
@@ -16,6 +17,11 @@ public class SawBlade extends StaticEntity {
 	@Override
 	public void tick() {
 		
+	}
+	
+	@Override
+	public void die() {
+		handler.getWorld().getItemManager().addItem(Item.victideEnc.createNew((int) x, (int) y));
 	}
 
 	@Override
