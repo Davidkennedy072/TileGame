@@ -6,6 +6,7 @@ import java.awt.geom.Ellipse2D;
 import dev.davidgame.tilegame.Handler;
 import dev.davidgame.tilegame.entities.Entity;
 import dev.davidgame.tilegame.graphics.Assets;
+import dev.davidgame.tilegame.inventory.Inventory;
 
 public class Player extends Creature {
 
@@ -13,6 +14,8 @@ public class Player extends Creature {
 	private long lastAttackTimer;
 	private long attackCooldown = 1000; // 1000 ms = 1 sec
 	private long attackTimer = attackCooldown;
+	//Inventory
+	private Inventory inventory;
 	
 	public Player(Handler handler, float x, float y) {
 		super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
@@ -23,6 +26,8 @@ public class Player extends Creature {
 		this.bounds.height = height*1/2;
 		this.hit_Circle_Radius = 100;
 		
+		inventory = new Inventory(handler);
+		
 	}
 	
 	@Override
@@ -30,7 +35,10 @@ public class Player extends Creature {
 		getInput();
 		move();
 		handler.getGameCamera().centerOnEntity(this);
+		//Attack
 		checkAttacks();
+		//Inventory
+		inventory.tick();
 	} 
 	
 	public void checkAttacks() {
@@ -80,5 +88,6 @@ public class Player extends Creature {
 	public void render(Graphics g) {
 		g.drawImage(Assets.vargas, (int) (x - handler.getGameCamera().getxOffset()), 
 				(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+		inventory.render(g);
 	}
 }

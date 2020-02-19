@@ -37,8 +37,8 @@ public class KeyManager implements KeyListener {
 		left = keys[KeyEvent.VK_LEFT];
 		right = keys[KeyEvent.VK_RIGHT];
 		
-		n_attack = keys[KeyEvent.VK_Q];
-		pick_up = keys[KeyEvent.VK_F];
+		n_attack = keys[KeyEvent.VK_Q]; //Normal attack
+		pick_up = keys[KeyEvent.VK_F]; // Pick up Items
 	}
 	
 	public boolean keyJustPressed(int keyCode) {
