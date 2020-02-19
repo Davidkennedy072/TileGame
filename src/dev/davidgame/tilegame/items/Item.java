@@ -1,6 +1,7 @@
 package dev.davidgame.tilegame.items;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 import dev.davidgame.tilegame.Handler;
@@ -23,6 +24,8 @@ public class Item {
 	protected String name;
 	protected final int id;
 	
+	protected Rectangle bounds;
+	
 	protected int x, y, count;
 	
 	public Item(BufferedImage texture, String name, int id) {
@@ -31,11 +34,19 @@ public class Item {
 		this.id = id;
 		count = 1;
 		
+		bounds = new Rectangle(x, y, ITEMWIDTH, ITEMHEIGHT);
+		
 		items[id] = this;
 	}
 	
 	public void tick() {
-		
+		if(handler.getWorld().getEntityManager().getPlayer().getCollisionBounds(0, 0).intersects(bounds) == true){
+			//If item bounds intersects player bounds
+			if(handler.getKeyManager().pick_up) {
+				//If pick up key is active
+				count = PICKED_UP;
+			}
+		}
 	}
 	
 	public void render(Graphics g) {
@@ -59,6 +70,8 @@ public class Item {
 	public void setPosition(int x, int y) {
 		this.x = x;
 		this.y = y;
+		this.bounds.x = x;
+		this.bounds.y = y;
 	}
 	
 	// GETTERS and SETTERS

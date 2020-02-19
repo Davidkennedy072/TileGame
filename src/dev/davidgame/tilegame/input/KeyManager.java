@@ -8,6 +8,7 @@ public class KeyManager implements KeyListener {
 	private boolean[] keys;
 	public boolean up, down, left, right; //Movement
 	public boolean n_attack; //Normal attack
+	public boolean pick_up; //Pick Up Items
 	
 	public KeyManager() {
 		keys = new boolean[256];
@@ -20,6 +21,7 @@ public class KeyManager implements KeyListener {
 		right = keys[KeyEvent.VK_RIGHT];
 		
 		n_attack = keys[KeyEvent.VK_Q];
+		pick_up = keys[KeyEvent.VK_F];
 	}
 
 	@Override

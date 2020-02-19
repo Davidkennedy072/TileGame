@@ -46,7 +46,7 @@ public class ItemManager {
 	}
 
 	public void setHandler(Handler handler) {
-		this.handler = handler;
+		this.handler = handler; 
 	}
 	
 }
