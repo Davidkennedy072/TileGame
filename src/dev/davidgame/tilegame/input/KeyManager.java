@@ -25,14 +25,22 @@ public class KeyManager implements KeyListener {
 	}
 
 	@Override
-	public void keyPressed(KeyEvent arg0) {
-		keys[arg0.getKeyCode()] = true;
+	public void keyPressed(KeyEvent e) {
+		if(e.getKeyCode() < 0 || e.getKeyCode() >= keys.length) {
+			// If key code is less than 0 or not in 256 array. Return
+			return;
+		}
+		keys[e.getKeyCode()] = true;
 		System.out.println("Pressed");
 	}
 
 	@Override
-	public void keyReleased(KeyEvent arg0) {
-		keys[arg0.getKeyCode()] = false;
+	public void keyReleased(KeyEvent e) {
+		if(e.getKeyCode() < 0 || e.getKeyCode() >= keys.length) {
+			// If key code is less than 0 or not in 256 array. Return
+			return;
+		}
+		keys[e.getKeyCode()] = false;
 	}
 
 	@Override
