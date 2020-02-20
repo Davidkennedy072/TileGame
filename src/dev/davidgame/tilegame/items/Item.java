@@ -17,7 +17,7 @@ public class Item {
 	
 	// CLASS
 
-	public static final int ITEMWIDTH = 32, ITEMHEIGHT = 32, PICKED_UP = -1;
+	public static final int ITEMWIDTH = 32, ITEMHEIGHT = 32;
 	
 	protected Handler handler;
 	protected BufferedImage texture;
@@ -27,6 +27,7 @@ public class Item {
 	protected Rectangle bounds;
 	
 	protected int x, y, count;
+	protected boolean pickedUp = false;
 	
 	public Item(BufferedImage texture, String name, int id) {
 		this.texture= texture;
@@ -44,7 +45,7 @@ public class Item {
 			//If item bounds intersects player bounds
 			if(handler.getKeyManager().pick_up) {
 				//If pick up key is active
-				count = PICKED_UP;
+				pickedUp = true;
 			}
 		}
 	}
@@ -76,8 +77,17 @@ public class Item {
 	
 	// GETTERS and SETTERS
 	
+	
 	public Handler getHandler() {
 		return handler;
+	}
+
+	public boolean isPickedUp() {
+		return pickedUp;
+	}
+
+	public void setPickedUp(boolean pickedUp) {
+		this.pickedUp = pickedUp;
 	}
 
 	public void setHandler(Handler handler) {
