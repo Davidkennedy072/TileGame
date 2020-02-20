@@ -29,6 +29,9 @@ public class Inventory {
 		}
 		if(handler.getGame().debug) {
 			System.out.println("INVENTORY SCREEN ON");
+			for(Item i: inventoryItems) {
+				System.out.println(i.getName() + " " + i.getCount());
+			}
 		}
 	}
 	

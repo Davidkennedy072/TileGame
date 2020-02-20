@@ -90,4 +90,14 @@ public class Player extends Creature {
 				(int) (y - handler.getGameCamera().getyOffset()), width, height, null);
 		inventory.render(g);
 	}
+
+	public Inventory getInventory() {
+		return inventory;
+	}
+
+	public void setInventory(Inventory inventory) {
+		this.inventory = inventory;
+	}
+	
+	
 }

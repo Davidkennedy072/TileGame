@@ -46,6 +46,7 @@ public class Item {
 			if(handler.getKeyManager().pick_up) {
 				//If pick up key is active
 				pickedUp = true;
+				handler.getWorld().getEntityManager().getPlayer().getInventory().addItem(this);
 			}
 		}
 	}
