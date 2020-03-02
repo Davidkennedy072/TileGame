@@ -24,7 +24,7 @@ public class GreenTree extends StaticEntity{
 	
 	@Override
 	public void die() {
-		handler.getWorld().getItemManager().addItem(Item.woodChest.createNew((int) x, (int) y));
+		handler.getWorld().getItemManager().addItem(Item.woodChest.createNew((int) x, (int) y, 10));
 	}
 
 	@Override
