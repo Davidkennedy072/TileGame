@@ -51,12 +51,15 @@ public abstract class Entity {
 	
 	public void hurt(int amt) {
 		health = health - amt;
-		handler.getGame().getGraphics().drawString("ABC" + amt, (int) x, (int) y);
-		System.out.println("Damange: " + amt);
 		if(health <= 0) {
 			active = false;
 			die();
 		}
+	}
+	
+	public void displayDamage(int amt, Graphics g) {
+		g.drawString("ABC: " + amt, (int) x, (int) y);
+		System.out.println("Damage: " + amt);
 	}
 	
 	public abstract void die();
