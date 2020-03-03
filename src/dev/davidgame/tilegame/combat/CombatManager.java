@@ -8,7 +8,8 @@ import dev.davidgame.tilegame.entities.Entity;
 public class CombatManager {
 	//Need to implement system that stores each attack from all different entities
 	//Once system ticks, it implements all the attacks against each enemy
-	//Maybe an attack class that stores the entity and the damage
+	//Maybe an combatEvent class that stores the entity and the damage
+	//Similar in structure to EntityManager
 	
 	private int damageAmount;
 
