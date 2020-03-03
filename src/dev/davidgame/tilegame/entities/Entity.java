@@ -57,11 +57,6 @@ public abstract class Entity {
 		}
 	}
 	
-	public void displayDamage(int amt, Graphics g) {
-		g.drawString("ABC: " + amt, (int) x, (int) y);
-		System.out.println("Damage: " + amt);
-	}
-	
 	public abstract void die();
 
 	public abstract void tick();

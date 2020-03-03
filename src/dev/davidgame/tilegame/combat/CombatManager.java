@@ -1,5 +1,34 @@
 package dev.davidgame.tilegame.combat;
 
-public class CombatManager {
+import java.awt.Graphics;
 
+import dev.davidgame.tilegame.Handler;
+import dev.davidgame.tilegame.entities.Entity;
+
+public class CombatManager {
+	//Need to implement system that stores each attack from all different entities
+	//Once system ticks, it implements all the attacks against each enemy
+	//Maybe an attack class that stores the entity and the damage
+	
+	private int damageAmount;
+
+	private Handler handler;
+	
+	public CombatManager(Handler handler) {
+		this.handler = handler;
+	}
+	
+	public void hurt(Entity e, int amt) {
+		e.hurt(amt);
+		damageAmount = amt;
+		System.out.println("Hurt");
+	}
+	
+	
+	public void tick() {
+		
+	}
+	
+	public void render(Graphics g) {
+	}
 }

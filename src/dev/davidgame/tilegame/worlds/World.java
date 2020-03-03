@@ -4,6 +4,7 @@ import java.awt.Graphics;
 
 import dev.davidgame.tilegame.Game;
 import dev.davidgame.tilegame.Handler;
+import dev.davidgame.tilegame.combat.CombatManager;
 import dev.davidgame.tilegame.entities.EntityManager;
 import dev.davidgame.tilegame.entities.creature.Player;
 import dev.davidgame.tilegame.entities.statics.GreenTree;
@@ -22,11 +23,14 @@ public class World {
 	private EntityManager entityManager;
 	//Item
 	private ItemManager itemManager; 
+	//Combat
+	private CombatManager combatManager;
 	
 	public World(Handler handler, String path) {
 		this.handler = handler;
 		entityManager = new EntityManager(handler, new Player(handler, 200, 200));
 		itemManager = new ItemManager(handler);
+		combatManager = new CombatManager(handler);
 		//Temporary Entity Spawn Code
 		entityManager.addEntity((new GreenTree(handler, 500, 100)));
 		entityManager.addEntity((new GreenTree(handler, 100, 320)));
@@ -42,6 +46,7 @@ public class World {
 	public void tick() {
 		itemManager.tick();
 		entityManager.tick();
+		combatManager.tick(); //Will be used in future
 	}
 	
 	public void render(Graphics g) {
@@ -60,6 +65,7 @@ public class World {
 		itemManager.render(g);
 		//Entities
 		entityManager.render(g);
+		combatManager.render(g);
 
 	}
 
@@ -124,6 +130,9 @@ public class World {
 	public void setItemManager(ItemManager itemManager) {
 		this.itemManager = itemManager;
 	}
-	
+
+	public CombatManager getCombatManager() {
+		return combatManager;
+	}
 
 }
