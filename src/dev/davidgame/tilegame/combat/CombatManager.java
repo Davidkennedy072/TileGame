@@ -19,7 +19,7 @@ public class CombatManager {
 		this.handler = handler;
 	}
 	
-	public void hurt(Entity e, int amt) {
+	public void basicAttack(Entity e, int amt) {
 		e.hurt(amt);
 		damageAmount = amt;
 		System.out.println("Hurt");

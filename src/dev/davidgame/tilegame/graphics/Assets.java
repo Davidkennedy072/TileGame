@@ -3,10 +3,12 @@ package dev.davidgame.tilegame.graphics;
 import java.awt.image.BufferedImage;
 
 public class Assets {
+	//To add new images:
+	//1) Refresh texture folders by selecting and pressing F5
 	
 	private static final int width = 50, height = 50;
 	
-	public static BufferedImage victide, person, mirror, back, wing, saw, vargas, greentree;
+	public static BufferedImage victide, person, mirror, back, wing, saw, vargas, greentree, zombie;
 	public static BufferedImage dirt, mud, stone;
 	public static BufferedImage woodenchest;
 	public static BufferedImage[] btn_start;
@@ -29,5 +31,7 @@ public class Assets {
 		greentree = ImageLoader.loadImager("/textures/Tree_1.png");
 		
 		woodenchest = ImageLoader.loadImager("/textures/Wooden_chest.png");
+		
+		zombie = ImageLoader.loadImager("/textures/Zombie.png");
 	}
 }

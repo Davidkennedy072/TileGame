@@ -25,7 +25,7 @@ public class Display {
 		this.frame = new JFrame(title); 
 		this.frame.setSize(width,height);
 		this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.frame.setResizable(true);
+		this.frame.setResizable(false);
 		this.frame.setLocationRelativeTo(null);
 		this.frame.setVisible(true);
 		

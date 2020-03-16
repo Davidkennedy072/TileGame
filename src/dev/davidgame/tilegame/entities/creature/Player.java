@@ -54,7 +54,7 @@ public class Player extends Creature {
 				if(e.equals(this))
 					continue;
 				if(ar.intersects(e.getCollisionBounds(0, 0))) {
-					handler.getWorld().getCombatManager().hurt(e, 10);
+					handler.getWorld().getCombatManager().basicAttack(e, 10);
 				}
 			}
 		}
