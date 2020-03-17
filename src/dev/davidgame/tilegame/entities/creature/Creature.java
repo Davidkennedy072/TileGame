@@ -49,6 +49,7 @@ public abstract class Creature extends Entity {
 		y = y + yMove;
 	}
 	
+	
 	public void die() {
 		
 	}

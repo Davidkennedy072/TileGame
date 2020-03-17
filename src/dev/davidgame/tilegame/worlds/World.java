@@ -2,10 +2,10 @@ package dev.davidgame.tilegame.worlds;
 
 import java.awt.Graphics;
 
-import dev.davidgame.tilegame.Game;
 import dev.davidgame.tilegame.Handler;
 import dev.davidgame.tilegame.combat.CombatManager;
 import dev.davidgame.tilegame.entities.EntityManager;
+import dev.davidgame.tilegame.entities.creature.BasicZombie;
 import dev.davidgame.tilegame.entities.creature.Player;
 import dev.davidgame.tilegame.entities.statics.GreenTree;
 import dev.davidgame.tilegame.entities.statics.SawBlade;
@@ -36,6 +36,7 @@ public class World {
 		entityManager.addEntity((new GreenTree(handler, 100, 320)));
 		entityManager.addEntity((new GreenTree(handler, 200, 200)));
 		entityManager.addEntity((new SawBlade(handler, 350, 200)));
+		entityManager.addEntity((new BasicZombie(handler, 400, 600)));
 		
 		loadWorld(path);
 		
